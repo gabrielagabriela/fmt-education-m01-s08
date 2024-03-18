@@ -1,5 +1,6 @@
 package com.education.m01s08.gerenciamentoEscola.controller;
 
+import com.education.m01s08.gerenciamentoEscola.model.Aluno;
 import com.education.m01s08.gerenciamentoEscola.model.Curso;
 import com.education.m01s08.gerenciamentoEscola.service.CursoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,4 +29,11 @@ public class CursoController {
     public Curso getId(@PathVariable Integer id) throws Exception{
         return cursoService.buscarPorId(id);
     }
+
+    @PostMapping("/add-aluno/{id}")
+    public Curso post(@PathVariable Integer id, @RequestBody Aluno aluno) throws Exception {
+        return cursoService.adicionaAluno(id, aluno.getId());
+    }
+
+
 }

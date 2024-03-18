@@ -17,6 +17,7 @@ public class Curso {
     private String descricao;
     private Integer cargaHoraria;
     @Getter private static List<Curso> listaDeCursos = new ArrayList<>();
+    private  List<Aluno> listaDeAlunosPorCurso = new ArrayList<>();
 
     public static Curso inserir(Curso curso){
         curso.id = proximoId++;
@@ -34,4 +35,9 @@ public class Curso {
         throw new Exception("Curso não encontrado");
     }
 
+
+    public static void adicionarAlunoAoCurso(Curso curso, Aluno aluno) {
+         curso.getListaDeAlunosPorCurso().add(aluno);
+    }
 }
+
