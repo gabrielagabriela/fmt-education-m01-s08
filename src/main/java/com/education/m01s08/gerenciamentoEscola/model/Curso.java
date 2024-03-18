@@ -24,5 +24,14 @@ public class Curso {
         return curso;
     }
 
+    public static Curso buscarPorId(Integer id) throws Exception{
+        for (Curso curso : listaDeCursos){
+           if( curso.getId().equals(id)) {
+               return curso;
+           }
+        }
+
+        throw new Exception("Curso não encontrado");
+    }
 
 }
